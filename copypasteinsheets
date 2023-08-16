@@ -1,0 +1,16 @@
+'excel VBA
+Sub copyandpreparesheetpsikogram()
+		Dim i As Integer
+    For i = 1 To 155 'berapa kali mau mencopy sheet aktif
+			ActiveSheet.Copy After:=ActiveSheet 'copy sheet aktif dan di paste di setelah sheet aktif
+    Next i 'selesai loop pertama
+
+	Sheets("1").Select 'untuk memilih secara spesifik nama sheet tertentu
+	for i = 1 to 155 'berapa kali mau dilakukan
+		activesheet.name = i 'ubah nama sheet jadi angka i
+		activesheet.range("A1") = i 'ganti range a1 menjadi angka yg tersimpan di i
+		activesheet.next.select 'pilih sheet selanjutnya
+	next i 'kembali ke awal loop di line 9
+
+End Sub
+
