@@ -1,0 +1,17 @@
+'first thing first:
+  'replace
+    'https://drive.google.com/uc?
+  'with
+    'https://drive.usercontent.google.com/download?
+  'add 
+    '&authuser=0
+
+sub insertimager
+Dim imgURL As String
+Dim img As Picture
+
+ 	imgURL = ActiveSheet.Range("AG7").Value 'lokasi img url
+  Set img = ActiveSheet.Pictures.Insert(imgURL) 'masukin img url
+  img.ShapeRange.LockAspectRatio = msoTrue 'lock aspek ratio
+  img.Top = ActiveSheet.Range("AG8").Top 'taruh image di AG8, ambil jangkar di atas
+  img.Height = 150 'besar image
