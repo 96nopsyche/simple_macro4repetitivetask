@@ -1,0 +1,14 @@
+'menyederhanakan pekerjaan copy pastefind replace di master table
+Sub FindAndReplace()
+    Dim ws As Worksheet
+    Dim rng As Range
+    Dim cell As Range
+    Dim i As Integer
+    
+    Set ws = ThisWorkbook.Worksheets("Rekap") ' set variabel ws menjadi nama sheet rekap
+	For i = 16 To 20 'di terapkan di baris 16 sampai 20
+
+        Set rng = ws.Range("C" & i & ":AX" & i) 'menset range menjadi sebuah variabel di bagian baris, pada kolom C hingga kolom AX
+        rng.Replace What:="'1'", Replacement:="'" & CStr(i - 12) & "'", LookIn:=xlValues, LookAt:=xlWhole 'replace sheet name ('1' di sini) dengan i-12 (pada i pertama jadi  16-12 = 4, sehingga jadi mengganti '1' pada C16:ax16 menjadi '4'
+    Next i 'go to the next loop
+End Sub
