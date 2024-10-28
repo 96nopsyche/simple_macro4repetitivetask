@@ -1,0 +1,22 @@
+Sub Pdfexport()
+Dim i As Integer
+Dim a As String
+Dim b As String
+
+For i = 1 To 11 'number of loop
+
+a = ActiveSheet.Range("k10").Value
+b = ActiveSheet.Range("k9").Value & ("_") & a '
+        ActiveSheet.PageSetup.PrintArea = ""
+        ActiveSheet.PageSetup.PrintArea = "$B$6:$CC$49"
+        ActiveSheet.Range("$B$6:$CC$49").Select
+        ActiveSheet.ExportAsFixedFormat Type:=xlTypePDF, Filename:= _
+        "C:\individu pgram\" & b, _
+        Quality:=xlQualityStandard, IncludeDocProperties:=True, IgnorePrintAreas _
+        :=False, OpenAfterPublish:=False
+
+ActiveSheet.Next.Select
+
+Next i
+
+End Sub
